@@ -16,7 +16,6 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.entity.Entity;
 
 /**
  * The Main Window. Provides the basic application layout containing a menu bar and space where other JavaFX elements
@@ -36,7 +35,6 @@ public class MainWindow extends UiPart<Stage> {
 
     private ViewModePanel viewModePanel;
     private EntityListPanel viewModeEntityListPanel;
-    private EntityDetailsPanel entityDetailsPanel;
 
     private ListModePanel listModePanel;
     private EntityListPanel listModeEntityListPanel;
@@ -127,17 +125,16 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        listModeEntityListPanel = new EntityListPanel(logic.getFilteredEntityList());
-        viewModeEntityListPanel = new EntityListPanel(logic.getFilteredEntityList());
+        listModeEntityListPanel = new EntityListPanel(logic.getFilteredPersonList());
+        viewModeEntityListPanel = new EntityListPanel(logic.getFilteredPersonList());
         listModePanel = new ListModePanel(listModeEntityListPanel);
-        entityDetailsPanel = new EntityDetailsPanel();
-        viewModePanel = new ViewModePanel(viewModeEntityListPanel, entityDetailsPanel);
+        viewModePanel = new ViewModePanel(viewModeEntityListPanel);
         modePanelPlaceholder.getChildren().add(listModePanel.getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
-        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getRerollFilePath());
+        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
@@ -238,11 +235,6 @@ public class MainWindow extends UiPart<Stage> {
             default:
                 logger.info("UiSwitchMode enum switch case defaulted!");
                 assert (false);
-            }
-
-            if (logic.getIsInEditMode()) {
-                Entity entity = logic.getCurrentSelectedEntity();
-                entityDetailsPanel.UpdateEntityDetails(entity);
             }
 
             return commandResult;

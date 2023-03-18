@@ -45,6 +45,7 @@ public class StorageManager implements Storage {
         userPrefsStorage.saveUserPrefs(userPrefs);
     }
 
+
     // ================ AddressBook methods ==============================
 
     @Override

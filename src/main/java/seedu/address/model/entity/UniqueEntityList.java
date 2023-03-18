@@ -1,4 +1,4 @@
-package seedu.address.model.person;
+package seedu.address.model.entity;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
@@ -8,7 +8,6 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.entity.Entity;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 
@@ -23,7 +22,7 @@ import seedu.address.model.person.exceptions.PersonNotFoundException;
  *
  * @see Entity#isSamePerson(Entity)
  */
-public class UniquePersonList implements Iterable<Entity> {
+public class UniqueEntityList implements Iterable<Entity> {
 
     private final ObservableList<Entity> internalList = FXCollections.observableArrayList();
     private final ObservableList<Entity> internalUnmodifiableList =
@@ -80,7 +79,7 @@ public class UniquePersonList implements Iterable<Entity> {
         }
     }
 
-    public void setPersons(UniquePersonList replacement) {
+    public void setPersons(UniqueEntityList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
     }
@@ -113,8 +112,8 @@ public class UniquePersonList implements Iterable<Entity> {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof UniquePersonList // instanceof handles nulls
-                        && internalList.equals(((UniquePersonList) other).internalList));
+                || (other instanceof UniqueEntityList // instanceof handles nulls
+                        && internalList.equals(((UniqueEntityList) other).internalList));
     }
 
     @Override

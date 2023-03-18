@@ -6,7 +6,7 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.entity.Entity;
-import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.entity.UniqueEntityList;
 
 /**
  * Wraps all data at the address-book level
@@ -14,7 +14,7 @@ import seedu.address.model.person.UniquePersonList;
  */
 public class AddressBook implements ReadOnlyAddressBook {
 
-    private final UniquePersonList persons;
+    private final UniqueEntityList entities;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -24,7 +24,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      *   among constructors.
      */
     {
-        persons = new UniquePersonList();
+        entities = new UniqueEntityList();
     }
 
     public AddressBook() {}
@@ -40,11 +40,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the person list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of the person list with {@code entities}.
+     * {@code entities} must not contain duplicate entities.
      */
-    public void setPersons(List<Entity> entities) {
-        this.persons.setPersons(entities);
+    public void setEntities(List<Entity> entities) {
+        this.entities.setPersons(entities);
     }
 
     /**
@@ -53,7 +53,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
+        setEntities(newData.getEntityList());
     }
 
     //// person-level operations
@@ -61,17 +61,17 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Returns true if a person with the same identity as {@code person} exists in the address book.
      */
-    public boolean hasPerson(Entity entity) {
+    public boolean hasEntity(Entity entity) {
         requireNonNull(entity);
-        return persons.contains(entity);
+        return entities.contains(entity);
     }
 
     /**
      * Adds a person to the address book.
      * The person must not already exist in the address book.
      */
-    public void addPerson(Entity p) {
-        persons.add(p);
+    public void addEntity(Entity p) {
+        entities.add(p);
     }
 
     /**
@@ -79,42 +79,42 @@ public class AddressBook implements ReadOnlyAddressBook {
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
-    public void setPerson(Entity target, Entity editedEntity) {
+    public void setEntity(Entity target, Entity editedEntity) {
         requireNonNull(editedEntity);
 
-        persons.setPerson(target, editedEntity);
+        entities.setPerson(target, editedEntity);
     }
 
     /**
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
-    public void removePerson(Entity key) {
-        persons.remove(key);
+    public void removeEntity(Entity key) {
+        entities.remove(key);
     }
 
     //// util methods
 
     @Override
     public String toString() {
-        return persons.asUnmodifiableObservableList().size() + " persons";
+        return entities.asUnmodifiableObservableList().size() + " entities";
         // TODO: refine later
     }
 
     @Override
-    public ObservableList<Entity> getPersonList() {
-        return persons.asUnmodifiableObservableList();
+    public ObservableList<Entity> getEntityList() {
+        return entities.asUnmodifiableObservableList();
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof AddressBook // instanceof handles nulls
-                && persons.equals(((AddressBook) other).persons));
+                && entities.equals(((AddressBook) other).entities));
     }
 
     @Override
     public int hashCode() {
-        return persons.hashCode();
+        return entities.hashCode();
     }
 }

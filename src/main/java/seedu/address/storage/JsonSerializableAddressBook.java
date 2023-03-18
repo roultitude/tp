@@ -37,7 +37,7 @@ class JsonSerializableAddressBook {
      * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
      */
     public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
-        persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
+        persons.addAll(source.getEntityList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
     }
 
     /**
@@ -49,10 +49,10 @@ class JsonSerializableAddressBook {
         AddressBook addressBook = new AddressBook();
         for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
             Entity entity = jsonAdaptedPerson.toModelType();
-            if (addressBook.hasPerson(entity)) {
+            if (addressBook.hasEntity(entity)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
-            addressBook.addPerson(entity);
+            addressBook.addEntity(entity);
         }
         return addressBook;
     }

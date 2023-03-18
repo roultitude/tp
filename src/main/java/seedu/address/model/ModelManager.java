@@ -34,7 +34,7 @@ public class ModelManager implements Model {
 
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredEntities = new FilteredList<>(this.addressBook.getPersonList());
+        filteredEntities = new FilteredList<>(this.addressBook.getEntityList());
     }
 
     /**
@@ -96,27 +96,27 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public boolean hasPerson(Entity entity) {
+    public boolean hasEntity(Entity entity) {
         requireNonNull(entity);
-        return addressBook.hasPerson(entity);
+        return addressBook.hasEntity(entity);
     }
 
     @Override
-    public void deletePerson(Entity target) {
-        addressBook.removePerson(target);
+    public void deleteEntity(Entity target) {
+        addressBook.removeEntity(target);
     }
 
     @Override
-    public void addPerson(Entity entity) {
-        addressBook.addPerson(entity);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    public void addEntity(Entity entity) {
+        addressBook.addEntity(entity);
+        updateFilteredEntityList(PREDICATE_SHOW_ALL_ENTITIES);
     }
 
     @Override
-    public void setPerson(Entity target, Entity editedEntity) {
+    public void setEntity(Entity target, Entity editedEntity) {
         requireAllNonNull(target, editedEntity);
 
-        addressBook.setPerson(target, editedEntity);
+        addressBook.setEntity(target, editedEntity);
     }
 
     //=========== Filtered Person List Accessors =============================================================
@@ -126,12 +126,12 @@ public class ModelManager implements Model {
      * versionedAddressBook}
      */
     @Override
-    public ObservableList<Entity> getFilteredPersonList() {
+    public ObservableList<Entity> getFilteredEntityList() {
         return filteredEntities;
     }
 
     @Override
-    public void updateFilteredPersonList(Predicate<Entity> predicate) {
+    public void updateFilteredEntityList(Predicate<Entity> predicate) {
         requireNonNull(predicate);
         filteredEntities.setPredicate(predicate);
     }

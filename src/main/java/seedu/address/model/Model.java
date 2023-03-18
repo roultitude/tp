@@ -12,7 +12,7 @@ import seedu.address.model.entity.Entity;
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Entity> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Entity> PREDICATE_SHOW_ALL_ENTITIES = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -55,33 +55,33 @@ public interface Model {
     /**
      * Returns true if a person with the same identity as {@code person} exists in the address book.
      */
-    boolean hasPerson(Entity entity);
+    boolean hasEntity(Entity entity);
 
     /**
      * Deletes the given person.
      * The person must exist in the address book.
      */
-    void deletePerson(Entity target);
+    void deleteEntity(Entity target);
 
     /**
      * Adds the given person.
      * {@code person} must not already exist in the address book.
      */
-    void addPerson(Entity entity);
+    void addEntity(Entity entity);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
-    void setPerson(Entity target, Entity editedEntity);
+    void setEntity(Entity target, Entity editedEntity);
 
     /** Returns an unmodifiable view of the filtered person list */
-    ObservableList<Entity> getFilteredPersonList();
+    ObservableList<Entity> getFilteredEntityList();
 
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredPersonList(Predicate<Entity> predicate);
+    void updateFilteredEntityList(Predicate<Entity> predicate);
 }

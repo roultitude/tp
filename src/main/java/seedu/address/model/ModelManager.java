@@ -17,7 +17,6 @@ import seedu.address.model.entity.Entity;
  * Represents the in-memory model of the address book data.
  */
 public class ModelManager implements Model {
-
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final AddressBook addressBook;
@@ -122,8 +121,8 @@ public class ModelManager implements Model {
     //=========== Filtered Person List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of {@code
-     * versionedAddressBook}
+     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * {@code versionedAddressBook}
      */
     @Override
     public ObservableList<Entity> getFilteredEntityList() {
@@ -151,8 +150,8 @@ public class ModelManager implements Model {
         // state check
         ModelManager other = (ModelManager) obj;
         return addressBook.equals(other.addressBook)
-            && userPrefs.equals(other.userPrefs)
-            && filteredEntities.equals(other.filteredEntities);
+                && userPrefs.equals(other.userPrefs)
+                && filteredEntities.equals(other.filteredEntities);
     }
 
 }

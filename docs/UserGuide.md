@@ -58,7 +58,7 @@ Reroll is a **desktop app for managing tabletop RPG character, monster and item 
 
 1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar reroll.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+   ![Ui.png](images/Ui.png)
 
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
@@ -222,6 +222,11 @@ Enter into edit mode for the specified entity.
 
 Format: `edit CLASSIFICATION NAME`
 
+| Opening Edit Mode               | Edit Mode Opened                   |
+|---------------------------------|------------------------------------|
+| ![img.png](images/pre_edit.png) | ![img_1.png](images/post_edit.png) |
+
+
 * In edit mode, changes can be made to any of the fields with the following format: <br>
   * `FIELD NEW_VALUE`
   * e.g. `name gilded staff` or `lvl 9000`
@@ -241,11 +246,15 @@ Finds entities who contain the given tags
 
 Format: `filter TAG [MORE_TAGS]`
 
+![filter.png](images/filtered.png)
+
 ### Locating Entity by name: `find`
 
 Finds Entity whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
+
+![find.png](images/find_items_ui.png)
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
@@ -269,6 +278,8 @@ Examples:
 
 Shows all template names.
 
+![img.png](images/show_ui.png)
+
 ### Make new character from a template: `template`
 
 Creates a new Character from a pre-determined template
@@ -282,6 +293,8 @@ Examples:
 
 Clears all entries from the database.
 
+![cleared](images/cleared_ui.png)
+
 Format: `clear all`
 
 ### Clearing selected entries : `clear selected`
@@ -289,6 +302,14 @@ Format: `clear all`
 Clear all entries currently shown on Reroll.
 
 Format: `clear selected`
+
+| Complete List                      | Delete Selected Entities               |
+|------------------------------------|----------------------------------------|
+| ![crop.png](images/small_ui.png)   | ![img_1.png](images/find_items_ui.png) |
+
+| Delete Selected Entities                     | Other Entities Still There            |
+|----------------------------------------------|---------------------------------------|
+| ![clear_select.png](images/clear_select.png) | ![list.png](images/selected_list.png) |
 
 ### Exiting the program : `exit`
 

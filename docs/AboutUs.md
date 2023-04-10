@@ -51,7 +51,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Ang Jun Yang
 
-<img src="images/Ang_Jun_Yang.png" width="200px">
+<img src="images/angjunyang.png" width="200px">
 
 [[github](https://github.com/AngJunYang)]
 [[portfolio](team/junyang.md)]

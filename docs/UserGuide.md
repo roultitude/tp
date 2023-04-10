@@ -254,9 +254,20 @@ Examples:
   * Shortform names can be used instead to shorten commands. Do check out <a href="#Short-form commands">Short-form commands</a> section for shortform commands!
   * Multiple tags can be added at once, separated by spaces.
   * For legendary status, any value other than `true` defaults to false.
+
+| Changing Strength Field           | Changing Tags                      |
+|-----------------------------------|------------------------------------|
+| ![img.png](images/change_str.png) | ![img.png](images/change_tags.png) |
+
 * Inventory has a different command format for adding and removing items from the inventory:
   * `inventory add/remove NAME`
   * e.g. `inventory add fish`
+
+| Adding Spellbook to Inventory   |
+|---------------------------------|
+| ![img.png](images/add_inv.png)  |
+
+
 * Refer to [entity fields](#entity-fields) for more details.
 * Edit mode may be left by entering the command: `back` or `b` while in edit mode.
 
@@ -333,11 +344,11 @@ Clear all entries currently shown on Reroll.
 
 Format: `clear selected`
 
-| Complete List                      | Delete Selected Entities               |
+| Complete List                      | Find Entities                          |
 |------------------------------------|----------------------------------------|
 | ![crop.png](images/small_ui.png)   | ![img_1.png](images/find_items_ui.png) |
 
-| Delete Selected Entities                     | Other Entities Still There            |
+| Cleaer Selected Entities                     | Other Entities Still There            |
 |----------------------------------------------|---------------------------------------|
 | ![clear_select.png](images/clear_select.png) | ![list.png](images/selected_list.png) |
 

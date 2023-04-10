@@ -426,6 +426,7 @@ The user stories are not limited to those in this list. More can be added in the
 * **Items**: Weapons, armor or tools that players can keep and use
 
 --------------------------------------------------------------------------------------------------------------------
+
 ## **Appendix: Planned Enhancements**
 
 Future enhancements are planned to improve Reroll.
@@ -437,6 +438,7 @@ Future enhancements are planned to improve Reroll.
 3. Entities with very long name does not wrap in the GUI. Changes to GUI to remedy this is expected.
 
 --------------------------------------
+
 ## **Appendix: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
@@ -453,6 +455,7 @@ testers are expected to do more *exploratory* testing.
     1. Download the jar file and copy into an empty folder
 
     2. Double-click the jar file Expected: Shows the GUI with a set of sample entities. The window size may not be optimum.
+
 
 2. Saving window preferences
 
